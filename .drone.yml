@@ -1,0 +1,8 @@
+kind: template
+load: nodeProject.jsonnet
+data:
+  node: 22
+  port: 7870
+  deployToHost: eros.dasred.de
+  environmentVariables: '["H2M_MQTT_HOST", "H2M_MQTT_USER", "H2M_MQTT_PASSWORD"]'
+  parameters: ''

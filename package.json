@@ -1,0 +1,75 @@
+{
+    "name": "@dasred/health2mqtt",
+    "version": "0.0.0",
+    "main": "src/index.ts",
+    "type": "module",
+    "author": "DasRed",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/DasRed/health2mqtt/issues"
+    },
+    "homepage": "https://github.com/DasRed/health2mqtt",
+    "engines": {
+        "node": ">=22.6.0",
+        "npm": ">=10.8.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DasRed/health2mqtt.git"
+    },
+    "files": [
+        "src/*"
+    ],
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "koa": "^2.15.3",
+        "koa-body": "^6.0.1",
+        "mqtt": "^5.10.0",
+        "pino": "^9.3.2",
+        "pino-pretty": "^11.2.2",
+        "tsx": "^4.17.0"
+    },
+    "devDependencies": {
+        "@semantic-release/commit-analyzer": "^13.0.0",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^10.1.4",
+        "@semantic-release/npm": "^12.0.1",
+        "@types/koa": "^2.15.0",
+        "semantic-release": "^24.0.0",
+        "semantic-release-cli": "^5.4.6",
+        "typescript": "^5.5.4"
+    },
+    "scripts": {
+        "typecheck": "npx tsc",
+        "start": "node --import=tsx/esm ./src/index.ts",
+        "semantic-release": "semantic-release"
+    },
+    "publishConfig": {
+        "access": "restricted",
+        "registry": "https://npm.pkg.github.com"
+    },
+    "release": {
+        "branches": [
+            "main"
+        ],
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            [
+                "@semantic-release/npm",
+                {
+                    "npmPublish": false
+                }
+            ],
+            [
+                "@semantic-release/git",
+                {
+                    "assets": [
+                        "package.json",
+                        "package-lock.json"
+                    ]
+                }
+            ],
+            "@semantic-release/github"
+        ]
+    }
+}
